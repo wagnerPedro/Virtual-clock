@@ -1,4 +1,4 @@
-let timer;
+let timer, fullHour;
 
 function clock() {
     let date = new Date();
@@ -6,20 +6,14 @@ function clock() {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
 
-    if (hour < 10) {
+    if ((hour < 10) && (minutes < 10) && (seconds < 10)) {
         hour = "0" + hour;
-    }
-    if (minutes < 10) {
         minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
         seconds = "0" + seconds;
     }
 
-    let fullHour = hour + ":" + minutes + ":" + seconds;
+    fullHour = hour + ":" + minutes + ":" + seconds;
 
     document.getElementById("showOutput").value = fullHour;
 }
-
 timer = setInterval(clock, 1000);
-
